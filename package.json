@@ -1,6 +1,6 @@
 {
   "name": "dynamic-class-list",
-  "version": "1.0.8",
+  "version": "1.0.81",
   "description": "A helper module to get a joined string of dynamic and conditional classes",
   "main": "index.js",
   "scripts": {
