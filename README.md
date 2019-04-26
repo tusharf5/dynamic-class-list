@@ -112,7 +112,7 @@ getClassNames('class1', 'class2', 2, null, undefined, ['class3', null, undefined
 ```
 
 
-## What's new in v1.0.8
+## What's new in v1.0.82
 
 - Unexpected Result when evaluating class through function.
 - Smaller Size 2.5Kb to 1.2Kb
