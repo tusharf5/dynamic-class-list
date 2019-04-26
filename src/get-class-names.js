@@ -1,5 +1,6 @@
 module.exports = {
   getClassNames,
+  classList: getClassNames,
 };
 
 function handleObject(objArg, classList) {

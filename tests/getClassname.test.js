@@ -1,33 +1,33 @@
 /* eslint-disable no-undef */
-const getClassnames = require('../index').getClassNames;
+const { classList } = require('../index');
 
 test('Print Numbers', () => {
-  expect(getClassnames(1, 2)).toBe('1 2');
+  expect(classList(1, 2)).toBe('1 2');
 });
 
 test('Print Strings', () => {
-  expect(getClassnames('class', 'another')).toBe('class another');
+  expect(classList('class', 'another')).toBe('class another');
 });
 
 test('Print Array', () => {
-  expect(getClassnames(['as', 'asdd'])).toBe('as asdd');
+  expect(classList(['as', 'asdd'])).toBe('as asdd');
 });
 
 test('Print Object', () => {
-  expect(getClassnames({ abc: true, cde: false })).toBe('abc');
+  expect(classList({ abc: true, cde: false })).toBe('abc');
 });
 
 test('Print Functions', () => {
-  expect(getClassnames({ abc: () => false, cde: () => true })).toBe('cde');
+  expect(classList({ abc: () => false, cde: () => true })).toBe('cde');
 });
 
 test('Print Bad Values', () => {
-  expect(getClassnames(null, undefined)).toBe('');
+  expect(classList(null, undefined)).toBe('');
 });
 
 test('Print Bad Values in Object', () => {
   expect(
-    getClassnames({
+    classList({
       abs: undefined,
       cdb: null,
       abd: 2,
@@ -38,16 +38,16 @@ test('Print Bad Values in Object', () => {
 });
 
 test('Print Bad Values in Functions', () => {
-  expect(getClassnames({ abc: () => undefined, cde: () => null, add: () => {} })).toBe('');
+  expect(classList({ abc: () => undefined, cde: () => null, add: () => {} })).toBe('');
 });
 
 test('Print Bad Values in Array', () => {
-  expect(getClassnames([null, undefined, 1, 'asd', {}])).toBe('1 asd');
+  expect(classList([null, undefined, 1, 'asd', {}])).toBe('1 asd');
 });
 
 test('Print hybrid', () => {
   expect(
-    getClassnames(
+    classList(
       1,
       2,
       'class',

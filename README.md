@@ -29,15 +29,18 @@ Then require it in your module ...
 
 
 ```javascript
-var getClassNames = require('dynamic-class-list').getClassNames;
+var getClassNames = require('dynamic-class-list').getClassNames; // deprecated
+var classList = require('dynamic-class-list').classList;
 ```
 
 ## OR using ES6 imports
 
 
 ```javascript
-import { getClassNames } from 'dynamic-class-list';
+import { getClassNames, classList } from 'dynamic-class-list';
 ```
+
+Note that `getClassNames` is deprecated and will be removed in next major release. You should use `classList` moving forward.
 
 ## API
 
@@ -47,6 +50,8 @@ import { getClassNames } from 'dynamic-class-list';
 
 // As Arguments
 getClassNames('class1', 'class2');
+// OR
+classList('class1', 'class2');
 
 // Output : "class1 class2"
 ```
@@ -57,11 +62,11 @@ getClassNames('class1', 'class2');
 ```javascript
 
 // As an Array
-getClassNames(['class1', 'class2']);
+classList(['class1', 'class2']);
 
 // Output : "class1 class2"
 
-getClassNames([null, undefined, 3, 'class1', 'class2']);
+classList([null, undefined, 3, 'class1', 'class2']);
 
 // Output : "3 class1 class2"
 ```
@@ -73,11 +78,11 @@ getClassNames([null, undefined, 3, 'class1', 'class2']);
 ```javascript
 
 // As an Object
-getClassNames({class1: true, class2 : false});
+classList({class1: true, class2 : false});
 
 // Output : "class1"
 
-getClassNames({class1: undefined, class2 : null, class3: true, class4: false});
+classList({class1: undefined, class2 : null, class3: true, class4: false});
 
 // Output : "class3"
 ```
@@ -87,7 +92,7 @@ getClassNames({class1: undefined, class2 : null, class3: true, class4: false});
 ```javascript
 
 // Value as a function As an Object
-getClassNames({ 
+classList({ 
     class1: function() { return false; },
     class2 : function() { return true; }
 });
@@ -100,7 +105,7 @@ getClassNames({
 ```javascript
 
 // using all type of data
-getClassNames('class1', 'class2', 2, null, undefined, ['class3', null, undefined, 4, 'class4'], { 
+classList('class1', 'class2', 2, null, undefined, ['class3', null, undefined, 4, 'class4'], { 
     class5 : function() { return false; },
     class6 : function() { return true; },
     class7: undefined,

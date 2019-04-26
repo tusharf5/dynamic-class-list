@@ -1,5 +1,6 @@
-var getClassNames = require('./lib/get-class-names').getClassNames;
+const { getClassNames } = require('./lib/get-class-names');
 
 module.exports = {
-  getClassNames: getClassNames
+  getClassNames,
+  classList: getClassNames,
 };
