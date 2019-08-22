@@ -1,7 +1,7 @@
 {
   "name": "dynamic-class-list",
-  "version": "1.0.82",
-  "description": "A helper module to get a joined string of dynamic and conditional classes",
+  "version": "1.0.83",
+  "description": "A helper module to get a joined string of dynamic and conditional css classes",
   "main": "index.js",
   "scripts": {
     "build": "npx babel src --out-dir lib --minified --no-comments",
@@ -32,13 +32,13 @@
   },
   "homepage": "https://github.com/tusharf5/dynamic-class-list#readme",
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.2",
-    "jest": "^24.7.1"
+    "@babel/cli": "~7.5.5",
+    "@babel/core": "~7.5.5",
+    "@babel/preset-env": "~7.5.5",
+    "eslint": "~6.2.1",
+    "eslint-config-airbnb-base": "~14.0.0",
+    "eslint-plugin-import": "~2.18.2",
+    "jest": "~24.9.0"
   },
   "jest": {
     "verbose": true,
