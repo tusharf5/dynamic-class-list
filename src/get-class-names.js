@@ -1,7 +1,19 @@
-module.exports = {
-  getClassNames,
-  classList: getClassNames,
-};
+/* eslint-disable no-use-before-define */
+
+function isBadValue(obj) {
+  return obj === null || typeof obj === 'undefined' || obj === undefined;
+}
+
+function handleFunction(fn, key, classList) {
+  let result = false;
+  try {
+    result = fn();
+    if (result) {
+      classList.push(key.trim());
+    }
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
+}
 
 function handleObject(objArg, classList) {
   Object.keys(objArg).forEach((fieldName) => {
@@ -10,50 +22,39 @@ function handleObject(objArg, classList) {
       handleFunction(objArg[fieldName], fieldName, classList);
     } else if (objArg[fieldName]) {
       // if field value is truthy
-      classList.push(getClassNames(fieldName).trim());
+      classList.push(fieldName);
     }
   });
 }
 
-function handleFunction(fn, key, classList) {
-  let result = false;
-  try {
-    result = fn();
-  } catch (e) {}
-  if (typeof result === 'boolean') {
-    if (result) {
-      classList.push(key.trim());
+function handleArray(params, classList) {
+  params.forEach((param) => {
+    const res = getClassNames(param);
+    if (res.trim()) {
+      classList.push(res);
     }
-  }
-}
-
-function handleArray(arrayArg, classList) {
-  arrayArg.forEach((element) => {
-    !isBadValue(element) && classList.push(getClassNames(element).trim()); // recursion
   });
-}
-
-function isBadValue(obj) {
-  if (obj === null || typeof obj === 'undefined' || obj === undefined) {
-    return true;
-  }
-  return false;
 }
 
 function getClassNames() {
   const classList = [];
-  const args = [].slice.call(arguments, 0);
-  args.forEach((arg) => {
-    if (isBadValue(arg)) {
-      return;
-    }
-    if (typeof arg === 'number' || typeof arg === 'string') {
-      classList.push(String(arg).trim());
-    } else if (Array.isArray(arg)) {
-      handleArray(arg, classList);
-    } else if (typeof arg === 'object') {
-      handleObject(arg, classList);
+  // eslint-disable-next-line prefer-rest-params
+  const parameters = Array.prototype.slice.call(arguments);
+  parameters.forEach((param) => {
+    if (!isBadValue(param)) {
+      if (typeof param === 'number' || typeof param === 'string') {
+        classList.push(String(param).trim());
+      } else if (Array.isArray(param)) {
+        handleArray(param, classList);
+      } else if (typeof param === 'object') {
+        handleObject(param, classList);
+      }
     }
   });
-  return classList.join(' ').trim();
+  return classList.length > 0 ? classList.join(' ').trim() : '';
 }
+
+module.exports = {
+  getClassNames,
+  classList: getClassNames,
+};

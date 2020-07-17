@@ -3,7 +3,7 @@
 
 ![LISCENCE](https://img.shields.io/npm/l/dynamic-class-list) ![NPM Downloads](https://img.shields.io/npm/dt/dynamic-class-list) ![NPM Version](https://img.shields.io/npm/v/dynamic-class-list) ![Size](https://img.shields.io/bundlephobia/minzip/dynamic-class-list)
 
-Simple, fast module for getting strings of dynamic and conditional class list.
+A tiny, no-dependency module for getting strings of dynamic and conditional classList.
 
 Features:
 

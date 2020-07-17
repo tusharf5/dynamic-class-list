@@ -76,5 +76,5 @@ test('Print hybrid', () => {
         askdj: 'sda',
       },
     ),
-  ).toBe('1 2 class another as asdd abc abd cjn askdj 1 asd  cde sdf abd cjn askdj');
+  ).toBe('1 2 class another as asdd abc abd cjn askdj 1 asd cde sdf abd cjn askdj');
 });
