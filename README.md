@@ -1,9 +1,25 @@
+<p align="center">
+   <a href="https://github.com/tusharf5/dynamic-class-list"><img src="https://onetwopixel.com/wp-content/uploads/2018/02/animat-cube-color.gif" alt="css class conditional react dynamic" height="100"/></a>
+</p>
 
-# dynamic-class-list
+<h1 style="margin-top: 0;" align="center">dynamic-class-list</h1>
 
-![LISCENCE](https://img.shields.io/npm/l/dynamic-class-list) ![NPM Downloads](https://img.shields.io/npm/dt/dynamic-class-list) ![NPM Version](https://img.shields.io/npm/v/dynamic-class-list) ![Size](https://img.shields.io/bundlephobia/minzip/dynamic-class-list)
+<p align="center">A tiny, no-dependency library for creating conditional css classes.</p>
 
-A tiny, no-dependency module for getting strings of dynamic and conditional classList.
+<p align="center">
+	<a href="https://github.com/tusharf5/dynamic-class-list">
+     <img src="https://img.shields.io/npm/l/dynamic-class-list" height="20"/>
+  </a>
+	<a href="https://github.com/tusharf5/dynamic-class-list">
+     <img src="https://img.shields.io/npm/v/dynamic-class-list" height="20"/>
+  </a>
+	<a href="https://github.com/tusharf5/dynamic-class-list">
+     <img src="https://img.shields.io/npm/dt/dynamic-class-list" height="20"/>
+  </a>
+	<a href="https://github.com/tusharf5/dynamic-class-list">
+     <img src="https://img.shields.io/bundlephobia/minzip/dynamic-class-list" height="20"/>
+  </a>
+</p><br/><br/>
 
 Features:
 
@@ -11,9 +27,8 @@ Features:
 * Support number arguments.
 * Support object arguments.
 * Support array arguments.
-* Support functions.
-* Ignore bad values like null and undefined.
-* Zero-dependency.
+* Support function arguments.
+* No dependency.
 
 ## Quickstart - CommonJS
 
@@ -51,26 +66,18 @@ Note that `getClassNames` is deprecated and will be removed in next major releas
 ```javascript
 
 // As Arguments
-getClassNames('class1', 'class2');
+getClassNames('class1', 'class2'); // Output ==> "class1 class2"
 // OR
-classList('class1', 'class2');
-
-// Output : "class1 class2"
+classList('class1', 'class2'); // Output ==> "class1 class2"
 ```
 
 ### Arguments as an array of strings
 
 
 ```javascript
+classList(['class1', 'class2']); // Output ==> "class1 class2"
 
-// As an Array
-classList(['class1', 'class2']);
-
-// Output : "class1 class2"
-
-classList([null, undefined, 3, 'class1', 'class2']);
-
-// Output : "3 class1 class2"
+classList([null, undefined, 3, 'class1', 'class2']); // Output ==> "3 class1 class2"
 ```
 
 ### Arguments as an object
@@ -78,35 +85,25 @@ classList([null, undefined, 3, 'class1', 'class2']);
 `Note that the key is used as the class if its value is truthy`
 
 ```javascript
+classList({class1: true, class2 : false}); // Output ==> "class1"
 
-// As an Object
-classList({class1: true, class2 : false});
-
-// Output : "class1"
-
-classList({class1: undefined, class2 : null, class3: true, class4: false});
-
-// Output : "class3"
+classList({class1: undefined, class2 : null, class3: true, class4: false}); // Output ==> "class3"
 ```
 
-`Note that the function should return a boolean`
+Note that the function **must** return a boolean.
 
 ```javascript
-
-// Value as a function As an Object
 classList({ 
-    class1: function() { return false; },
-    class2 : function() { return true; }
+  class1: function() { return false; },
+  class2 : function() { return true; }
 });
 
-// Output : "class2"
+// Output ==> "class2"
 ```
 
 ### Hybrid Arguments
 
 ```javascript
-
-// using all type of data
 classList('class1', 'class2', 2, null, undefined, ['class3', null, undefined, 4, 'class4'], { 
     class5 : function() { return false; },
     class6 : function() { return true; },
@@ -115,11 +112,5 @@ classList('class1', 'class2', 2, null, undefined, ['class3', null, undefined, 4,
     class9: false
 });
 
-// Output : "class1 class2 2 class3 4 class4 class6 class8"
+// Output ==> "class1 class2 2 class3 4 class4 class6 class8"
 ```
-
-
-## What's new in v1.0.82
-
-- Unexpected Result when evaluating class through function.
-- Smaller Size 2.5Kb to 1.2Kb
