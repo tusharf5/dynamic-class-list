@@ -1,8 +1,8 @@
 <p align="center">
-   <a href="https://github.com/tusharf5/dynamic-class-list"><img src="https://raw.githubusercontent.com/tusharf5/dynamic-class-list/master/src/static/logo.gif" alt="css class conditional react dynamic" height="80"/></a>
+   <a href="https://github.com/tusharf5/dynamic-class-list"><img src="https://raw.githubusercontent.com/tusharf5/dynamic-class-list/master/static/logo.gif" alt="css class conditional react dynamic" height="100"/></a>
 </p>
 
-<h1 style="margin-top: 0;" align="center">dynamic-class-list</h1>
+<h1 align="center">dynamic-class-list</h1>
 
 <p align="center">A tiny, no-dependency library for creating conditional css classes.</p>
 
