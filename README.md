@@ -1,5 +1,5 @@
 <p align="center">
-   <a href="https://github.com/tusharf5/dynamic-class-list"><img src="https://onetwopixel.com/wp-content/uploads/2018/02/animat-cube-color.gif" alt="css class conditional react dynamic" height="100"/></a>
+   <a href="https://github.com/tusharf5/dynamic-class-list"><img src="https://raw.githubusercontent.com/tusharf5/dynamic-class-list/master/src/static/logo.gif" alt="css class conditional react dynamic" height="80"/></a>
 </p>
 
 <h1 style="margin-top: 0;" align="center">dynamic-class-list</h1>
