@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { classList } = require('../index');
+const { classList } = require('../dist/index.cjs');
 
 test('Print Numbers', () => {
   expect(classList(1, 2)).toBe('1 2');

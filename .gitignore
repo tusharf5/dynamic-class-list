@@ -1,4 +1,5 @@
+.DS_Store
 node_modules
-/coverage/
-settings.json
-lib/get-class-names.js
+dist
+.rpt2_cache
+docs/src/latest/

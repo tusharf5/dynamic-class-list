@@ -1,10 +1,14 @@
 /* eslint-disable no-use-before-define */
 
-function isBadValue(obj) {
+type Value = string | undefined | null | number;
+type ValueMore = Value | Record<string, () => boolean>;
+type PossibleValues = ValueMore | Array<ValueMore>;
+
+function isBadValue<T>(obj: T): boolean {
   return obj === null || typeof obj === 'undefined' || obj === undefined;
 }
 
-function handleFunction(fn, key, classList) {
+function handleFunction(fn: () => boolean, key: string, classList: string[]) {
   let result = false;
   try {
     result = fn();
@@ -15,38 +19,38 @@ function handleFunction(fn, key, classList) {
   } catch (e) {}
 }
 
-function handleObject(objArg, classList) {
+function handleObject(objArg: Record<string, () => boolean>, classList: string[]) {
   Object.keys(objArg).forEach((fieldName) => {
-    if (typeof objArg[fieldName] === 'function') {
+    const value = objArg[fieldName];
+    if (typeof value === 'function') {
       // if field value is a function call it
-      handleFunction(objArg[fieldName], fieldName, classList);
-    } else if (objArg[fieldName]) {
+      handleFunction(value, fieldName, classList);
+    } else if (value) {
       // if field value is truthy
       classList.push(fieldName);
     }
   });
 }
 
-function handleArray(params, classList) {
+function handleArray(params: Array<ValueMore>, classList: string[]) {
   params.forEach((param) => {
-    const res = getClassNames(param);
+    const res = cl(param);
     if (res.trim()) {
       classList.push(res);
     }
   });
 }
 
-function getClassNames() {
-  const classList = [];
-  // eslint-disable-next-line prefer-rest-params
-  const parameters = Array.prototype.slice.call(arguments);
+function cl(..._args: PossibleValues[]): string {
+  const classList: string[] = [];
+  const parameters: PossibleValues[] = Array.prototype.slice.call(arguments);
   parameters.forEach((param) => {
     if (!isBadValue(param)) {
       if (typeof param === 'number' || typeof param === 'string') {
         classList.push(String(param).trim());
       } else if (Array.isArray(param)) {
         handleArray(param, classList);
-      } else if (typeof param === 'object') {
+      } else if (param && typeof param === 'object') {
         handleObject(param, classList);
       }
     }
@@ -54,7 +58,4 @@ function getClassNames() {
   return classList.length > 0 ? classList.join(' ').trim() : '';
 }
 
-module.exports = {
-  getClassNames,
-  classList: getClassNames,
-};
+export { cl };
