@@ -1,12 +1,12 @@
 TN:
-SF:dist/index.cjs.js
+SF:dist/index.js
 FN:1,t
 FN:1,r
 FN:1,(anonymous_2)
 FN:1,(anonymous_3)
-FN:1,e
-FN:1,(anonymous_5)
 FN:1,n
+FN:1,(anonymous_5)
+FN:1,o
 FN:1,(anonymous_7)
 FNF:8
 FNH:8
@@ -14,9 +14,9 @@ FNDA:39,t
 FNDA:11,r
 FNDA:31,(anonymous_2)
 FNDA:10,(anonymous_3)
-FNDA:4,e
+FNDA:4,n
 FNDA:14,(anonymous_5)
-FNDA:24,n
+FNDA:24,o
 FNDA:39,(anonymous_7)
 DA:1,39
 LF:1

@@ -1,7 +1,8 @@
 /* eslint-disable no-use-before-define */
 
 type Value = string | undefined | null | number;
-type ValueMore = Value | Record<string, () => boolean>;
+type ObjectValue = (() => boolean) | boolean | undefined | null;
+type ValueMore = Value | Record<string, ObjectValue>;
 type PossibleValues = ValueMore | Array<ValueMore>;
 
 function isBadValue<T>(obj: T): boolean {
@@ -19,7 +20,7 @@ function handleFunction(fn: () => boolean, key: string, classList: string[]) {
   } catch (e) {}
 }
 
-function handleObject(objArg: Record<string, () => boolean>, classList: string[]) {
+function handleObject(objArg: Record<string, ObjectValue>, classList: string[]) {
   Object.keys(objArg).forEach((fieldName) => {
     const value = objArg[fieldName];
     if (typeof value === 'function') {
