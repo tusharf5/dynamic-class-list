@@ -1,6 +1,6 @@
 {
   "name": "dynamic-class-list",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A js package to get a string of dynamic and conditional css classes",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
